@@ -123,7 +123,7 @@ for ax in axes.flat:
     os.makedirs('results', exist_ok=True)
 
 # Сохраняем основной график
-    fig.savefig('results/kalman_simulation.png', dpi=300, bbox_inches='tight')
+    fig.savefig('results/mod_kalman_simulation.png', dpi=300, bbox_inches='tight')
     print(" Основной график сохранен: results/kalman_simulation.png")
 
 plt.suptitle(f'Модифицированный фильтр Калмана', 
