@@ -124,8 +124,23 @@ axes[2, 1].set_title('(f) Выборочная оценка дисперсии �
 for ax in axes.flat:
     ax.set_xlim(0, N)
     ax.grid(True, alpha=0.2)
+    
+    
+    # Сохранение графиков (добавить в конец перед plt.show())
+    import os
 
-plt.show()
+# Создаем папку results если её нет
+    os.makedirs('results', exist_ok=True)
+
+# Сохраняем основной график
+    fig.savefig('results/kalman_simulation.png', dpi=300, bbox_inches='tight')
+    print("✅ Основной график сохранен: results/kalman_simulation.png")
+
+# Сохраняем статистический анализ
+    fig.savefig('results/innovations_analysis.png', dpi=300, bbox_inches='tight')
+    print("✅ График анализа сохранен: results/innovations_analysis.png")
+
+    plt.show()
 
 
 from statsmodels.graphics.tsaplots import plot_acf
@@ -143,3 +158,19 @@ axes2[1].set_xlabel('Лаг')
 axes2[1].set_ylabel('Автокорреляция')
 axes2[1].set_ylim(-0.3, 0.8)
 axes2[1].set_ylim(-0.3, 1.1)  # ← Увеличить до 1.1
+
+# Сохранение графиков (добавить в конец перед plt.show())
+import os
+
+# Создаем папку results если её нет
+os.makedirs('results', exist_ok=True)
+
+# Сохраняем основной график
+fig.savefig('results/kalman_simulation.png', dpi=300, bbox_inches='tight')
+print("✅ Основной график сохранен: results/kalman_simulation.png")
+
+# Сохраняем статистический анализ
+fig2.savefig('results/innovations_analysis.png', dpi=300, bbox_inches='tight')
+print("✅ График анализа сохранен: results/innovations_analysis.png")
+
+plt.show()
