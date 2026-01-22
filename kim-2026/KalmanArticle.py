@@ -134,11 +134,11 @@ for ax in axes.flat:
 
 # Сохраняем основной график
     fig.savefig('results/kalman_simulation.png', dpi=300, bbox_inches='tight')
-    print("✅ Основной график сохранен: results/kalman_simulation.png")
+    print(" Основной график сохранен: results/kalman_simulation.png")
 
 # Сохраняем статистический анализ
     fig.savefig('results/innovations_analysis.png', dpi=300, bbox_inches='tight')
-    print("✅ График анализа сохранен: results/innovations_analysis.png")
+    print(" График анализа сохранен: results/innovations_analysis.png")
 
     plt.show()
 
@@ -167,10 +167,10 @@ os.makedirs('results', exist_ok=True)
 
 # Сохраняем основной график
 fig.savefig('results/kalman_simulation.png', dpi=300, bbox_inches='tight')
-print("✅ Основной график сохранен: results/kalman_simulation.png")
+print(" Основной график сохранен: results/kalman_simulation.png")
 
 # Сохраняем статистический анализ
 fig2.savefig('results/innovations_analysis.png', dpi=300, bbox_inches='tight')
-print("✅ График анализа сохранен: results/innovations_analysis.png")
+print(" График анализа сохранен: results/innovations_analysis.png")
 
 plt.show()
