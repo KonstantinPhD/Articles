@@ -126,7 +126,7 @@ for ax in axes.flat:
     fig.savefig('results/mod_kalman_simulation.png', dpi=300, bbox_inches='tight')
     print(" Основной график сохранен: results/kalman_simulation.png")
 
-plt.suptitle(f'Модифицированный фильтр Калмана', 
+    plt.suptitle(f'Модифицированный фильтр Калмана', 
              fontsize=24, y=1.02)
-plt.tight_layout()
+    plt.tight_layout()
 plt.show()
