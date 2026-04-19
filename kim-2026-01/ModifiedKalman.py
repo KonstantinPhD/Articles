@@ -44,6 +44,7 @@ P_theory[0] = 19.3
 
 sigma[0]=10;
 T[0]=10;
+k0=0.27; #!correctionn coefficient
 
 n=8;
 
@@ -53,7 +54,7 @@ for t in range(1, N):
   
     sigma[t]=np.var(x_filt[0:t])+1e-9 
     T[t] = np.var(y_obs[0:t])
-    K[t] = ((a**2)*sigma[t] /(T[t]+(a**2)*sigma[t])+1e-9)
+    K[t] = k0+(((a**2)*sigma[t] /(T[t]+(a**2)*sigma[t])+1e-9))
     innovations[t] = y_obs[t] - x_filt[t-1]
     x_filt[t] = x_filt[t-1] + K[t] * innovations[t]
     P_theory[t] = (1 - K[t]) * P_pred[t]
@@ -95,7 +96,7 @@ axes[0, 0].set_title('(a) Моделирование процесса "walk stat
 axes[1, 0].plot(y_obs, color='black', linewidth=0.8)
 axes[1, 0].set_title('(b) Наблюдения y(t)')
 
-axes[2, 0].plot(K+0.27, color='black', linewidth=0.9)
+axes[2, 0].plot(K, color='black', linewidth=0.9)
 axes[2, 0].axhline(y=0.8284, color='red', linestyle='--', alpha=0.5)
 axes[2, 0].set_title('(c) Коэффициент усиления k(t)')
 axes[2, 0].set_ylim([-0.1, 1.0])
