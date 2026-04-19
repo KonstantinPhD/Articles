@@ -49,12 +49,10 @@ k0=0.27; #!correctionn coefficient
 n=8;
 
 for t in range(1, N):
-    P_pred[t] = P_theory[t-1] + sigma_eta2
-    
-  
-    sigma[t]=np.var(x_filt[0:t])+1e-9 
-    T[t] = np.var(y_obs[0:t])
-    K[t] = k0+(((a**2)*sigma[t] /(T[t]+(a**2)*sigma[t])+1e-9))
+    P_pred[t] = P_theory[t-1] + sigma_eta2 
+    sigma[t]=np.var(x_filt[0:t])+1e-9 #estimation of variance of estimation of state vector
+    T[t] = np.var(y_obs[0:t]) #estimation of the variance of the measurement vector
+    K[t] = k0+(((a**2)*sigma[t] /(T[t]+(a**2)*sigma[t])+1e-9)) #gain correction
     innovations[t] = y_obs[t] - x_filt[t-1]
     x_filt[t] = x_filt[t-1] + K[t] * innovations[t]
     P_theory[t] = (1 - K[t]) * P_pred[t]
