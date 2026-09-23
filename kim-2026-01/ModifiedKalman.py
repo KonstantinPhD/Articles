@@ -44,7 +44,7 @@ P_theory[0] = 19.3
 
 sigma[0]=10;
 T[0]=10;
-k0=0.27; #!correctionn coefficient
+k0=0.0; #!correctionn coefficient
 
 n=8;
 
