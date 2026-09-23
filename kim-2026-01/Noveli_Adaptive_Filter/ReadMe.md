@@ -73,17 +73,17 @@ $$
 
 ### IAEKF with Adaptive Window
 
+|## IAEKF with Adaptive Window
+
 | Step | Formula |
 |------|---------|
 | **Predict** | $P^-_{t\|t-1} = a^2 P_{t-1} + Q$ |
 | **Innovation** | $\nu_t = y_t - a\hat{x}_{t-1}$ |
-| **Window selection** | $w_t^* = \arg\min_w D_{KL}(\hat{p}_w(\nu) \| \mathcal{N}(0, P^- + \hat{R}_w))$ |
-| **Adaptation of $R$** | $\hat{R}_t = \max(\operatorname{Var}(\nu_{t-w_t^*+1:t}) - P^-, \varepsilon)$ |
-| **Gain** | $K_t = P^-/(P^- + \hat{R}_t)$ |
+| **Window selection** | $w_t^* = \arg\min_w D_{KL}\bigl(\hat{p}_w(\nu) \,\big\|\, \mathcal{N}(0, P^- + \hat{R}_w)\bigr)$ |
+| **Adaptation of $R$** | $\hat{R}_t = \max\!\bigl(\operatorname{Var}(\nu_{t-w_t^*+1:t}) - P^-, \varepsilon\bigr)$ |
+| **Gain** | $K_t = P^- / (P^- + \hat{R}_t)$ |
 | **Update $x$** | $\hat{x}_t = a\hat{x}_{t-1} + K_t \nu_t$ |
-| **Update $P$** | $P_t = (1-K_t) P^-$ |
-
----
+| **Update $P$** | $P_t = (1 - K_t) P^-$ |
 
 ## 📦 Installation
 
